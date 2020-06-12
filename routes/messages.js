@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
-const Post = require("./post");
+const Tweets = require('../database/models/Tweets');
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
-  res.send("respond with a resource");
+  Tweets.find().then(data => res.json(data)).catch(err => console.log(err))
 });
 
 // router.get("/:id", function (req, res, next) {
