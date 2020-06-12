@@ -26,16 +26,21 @@ router.get("/:id/messages/", function (req, res, next) {
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  console.log(req.body)
 
   const query = await User.find({ email });
   const user = await query;
 
-  if (user.password === password) {
+  if (user[0].password === password) {
     const payload = { id: user._id };
     const token = jwt.sign(payload, "hellomyfirend123");
 
-    res.send(token)
+    return res.send(token)
   }
-})
+
+  res.send("fail")
+
+});
+
 
 module.exports = router;
