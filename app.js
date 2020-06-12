@@ -1,5 +1,5 @@
 require('dotenv').config();
-require('./database/client');
+const db = require('./database/client');
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -39,5 +39,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

@@ -1,0 +1,12 @@
+{username: "Patrick",
+    email: "patrick@whatever.com",
+    password: "patrick",
+    tweets: [],}
+{username: "gozwald",
+email: "gozwaldk@whatever.com",
+password: "gozwald",
+tweets: [],}
+{username: "gozwald",
+email: "gozwaldk@whatever.com",
+password: "gozwald",
+tweets: [],}
