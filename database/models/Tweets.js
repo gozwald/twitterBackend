@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const tweetSchema = new Schema({
     user_id: mongoose.ObjectId,
     text: { type: String, min: 3, max: 100, required: true, unique: true },
-    tweets: [{ type: Schema.Types.ObjectId, ref: 'Tweets' }],
+    date: { type: Date, default: Date.now }
 });
 
 const Tweet = mongoose.model('Tweet', tweetSchema);
