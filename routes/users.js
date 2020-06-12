@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
     const payload = { id: user._id };
     const token = jwt.sign(payload, "hellomyfirend123");
 
-    return res.send(token)
+    return res.json({ token })
   }
 
   res.send("fail")
