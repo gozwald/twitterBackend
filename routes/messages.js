@@ -11,11 +11,9 @@ router.get("/", function (req, res, next) {
 //   res.send("respond with a resource");
 // });
 
-router.get("/test2/", (req, res) => {
-  console.log("hello!");
-  Post.find({}).then((e) => {
-    res.json(e);
-  });
+router.get("/:id/", (req, res) => {
+  const { id } = req.params;
+  Tweets.find({ _id: id }).then(data => res.json(data)).catch(err => console.log(err))
 });
 
 module.exports = router;
