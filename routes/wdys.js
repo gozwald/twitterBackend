@@ -9,8 +9,8 @@ router.post('/', (req, res) => {
     res.send("hello")
 });
 
-router.get('/', (req, res) => {
-    const { id } = req.body;
+router.get('/:id', (req, res) => {
+    const { id } = req.params;
 
     Body.find({ id })
         .then(data => res.json(data))
