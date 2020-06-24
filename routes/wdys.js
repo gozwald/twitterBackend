@@ -5,6 +5,7 @@ const Body = require('../database/models/Body');
 
 router.post('/', (req, res) => {
     const { innerHTML, id } = req.body;
+    console.log(innerHTML)
     Body.create({ innerHTML, id });
     res.send("hello")
 });
