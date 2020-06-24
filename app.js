@@ -20,15 +20,6 @@ app.set("view engine", "jade");
 
 app.use(logger("dev"));
 app.use(express.json());
-
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/messages", messagesRouter);
-app.use("/saveBody", bodyRouter);
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -41,6 +32,16 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
+app.use("/messages", messagesRouter);
+app.use("/saveBody", bodyRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
